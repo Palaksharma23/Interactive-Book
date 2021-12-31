@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="Combinational MSI">
 <script type="application/ld+json">
-{"description":"A Book to learn Digital Logic Design.","@type":"WebPage","url":"https://learn.circuitverse.org/docs/comb-msi/","headline":"Combinational MSI","@context":"https://schema.org"}</script>
+{"description":"A Book to learn Digital Logic Design.","@type":"WebPage","headline":"Combinational MSI","url":"https://learn.circuitverse.org/docs/comb-msi/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -244,7 +244,12 @@
 	var sidebar = document.querySelector("div.side-bar");
 	var mainContent = document.getElementById("top");
 	var isSidebar = localStorage.getItem('Sidebar');
-	if (isSidebar == 0 || isSidebar == null) {
+	
+	if (isSidebar == null) {
+		sidebar.classList.remove('active');
+		mainContent.classList.remove('sidebar-toggle');
+	}
+	else if (isSidebar == 0) {
 		isSidebar = 0;
 		localStorage.setItem('Sidebar', isSidebar);
 		sidebar.classList.add('active');
@@ -290,6 +295,7 @@
 	}
 	window.addEventListener('scroll',animateProgressBar);
 </script>
+
 <!-- -*- engine:django -*- -->	
 <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">

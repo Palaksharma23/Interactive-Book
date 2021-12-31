@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="Sequential synthesis">
 <script type="application/ld+json">
-{"description":"A Book to learn Digital Logic Design.","@type":"WebPage","url":"https://learn.circuitverse.org/docs/seq-design/seq-synth.html","headline":"Sequential synthesis","@context":"https://schema.org"}</script>
+{"description":"A Book to learn Digital Logic Design.","@type":"WebPage","headline":"Sequential synthesis","url":"https://learn.circuitverse.org/docs/seq-design/seq-synth.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -253,7 +253,12 @@
 	var sidebar = document.querySelector("div.side-bar");
 	var mainContent = document.getElementById("top");
 	var isSidebar = localStorage.getItem('Sidebar');
-	if (isSidebar == 0 || isSidebar == null) {
+	
+	if (isSidebar == null) {
+		sidebar.classList.remove('active');
+		mainContent.classList.remove('sidebar-toggle');
+	}
+	else if (isSidebar == 0) {
 		isSidebar = 0;
 		localStorage.setItem('Sidebar', isSidebar);
 		sidebar.classList.add('active');
@@ -299,6 +304,7 @@
 	}
 	window.addEventListener('scroll',animateProgressBar);
 </script>
+
 <!-- -*- engine:django -*- -->	
 <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
@@ -772,7 +778,7 @@
 
 <p>The circuit which implements such a machine is the following:</p>
 
-<iframe width="600px" height="400px" src="https://circuitverse.org/simulator/embed/vending_machine_ssi" id="projectPreview" scrolling="no" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+<iframe width="100%" height="400px" src="https://circuitverse.org/simulator/embed/vending_machine_ssi" id="projectPreview" scrolling="no" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
 
 <div class="prev-next-controls mt-3">

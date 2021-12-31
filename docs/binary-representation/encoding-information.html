@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary">
 <meta property="twitter:title" content="Encoding information">
 <script type="application/ld+json">
-{"description":"A Book to learn Digital Logic Design.","@type":"WebPage","url":"https://learn.circuitverse.org/docs/binary-representation/encoding-information.html","headline":"Encoding information","@context":"https://schema.org"}</script>
+{"description":"A Book to learn Digital Logic Design.","@type":"WebPage","headline":"Encoding information","url":"https://learn.circuitverse.org/docs/binary-representation/encoding-information.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -252,7 +252,12 @@
 	var sidebar = document.querySelector("div.side-bar");
 	var mainContent = document.getElementById("top");
 	var isSidebar = localStorage.getItem('Sidebar');
-	if (isSidebar == 0 || isSidebar == null) {
+	
+	if (isSidebar == null) {
+		sidebar.classList.remove('active');
+		mainContent.classList.remove('sidebar-toggle');
+	}
+	else if (isSidebar == 0) {
 		isSidebar = 0;
 		localStorage.setItem('Sidebar', isSidebar);
 		sidebar.classList.add('active');
@@ -298,6 +303,7 @@
 	}
 	window.addEventListener('scroll',animateProgressBar);
 </script>
+
 <!-- -*- engine:django -*- -->	
 <div id="content">
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
@@ -395,8 +401,8 @@ In computing, a <em>flag</em> is a type of signal usually used to indicate wheth
 <div style="float: left; width: 200px; margin-right: 20px">
 <p>Enter the homework code and click the button.</p>
         <p>Code:
-            <input type="text" id="homework" value="0" size="3" maxlength="3">
-            <input type="button" value="Send!" onclick="decode();">
+            <input style="color: #026e57;" type="text" id="homework" value="0" size="3" maxlength="3">
+            <input style="color: #026e57;" type="button" value="Send!" onclick="decode();">
         </p>
     </div>
         <div id="subjects" style="width: 160px; height: 210px; border: 1px solid black; padding: 0 0 0 10px; float:left; margin-bottom: 10px;text-align: left;"></div>
